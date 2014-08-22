@@ -1,0 +1,10 @@
+<h1> <%= @recipe.title %> </h1>
+
+<p><%= @recipe.recipe_description %></p>
+
+<p><a href="/recipes/<%= @recipe.id %>/edit">Edit</a></p>
+<p><a href="/recipes/<%= @recipe.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow">Delete</a></p>
+<p><a href="/recipes">Return to recipe</a></p>
