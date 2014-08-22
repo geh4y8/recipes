@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   def index
     @tags = Tag.all
     @recipe = Recipe.new
-    @recipes = Recipe.all
+    @recipes = Recipe.order(stars: :desc)
     render('recipes/index.html.erb')
   end
 
