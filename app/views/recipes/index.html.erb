@@ -2,7 +2,7 @@
 
 <ul>
   <% @recipes.each do |recipe| %>
-    <li><%= recipe.title %></li>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a></li>
   <% end %>
 </ul>
 
@@ -21,6 +21,14 @@
   <input id="recipe_title" name="recipes[title]" type="text">
   <label for="recipe_recipe_description">Recipe Details</label>
   <input id="recipe_recipe_description" name="recipes[recipe_description]" type="text">
+  <label for="recipe_stars">Add a star rating</label>
+  <select id="recipe_stars" name="recipes[stars]">
+    <option value ="1">1</option>
+    <option value ="2">2</option>
+    <option value ="3">3</option>
+    <option value ="4">4</option>
+    <option value ="5">5</option>
+  </select>
   <label for="tags_recipes">Choose a tag</label>
   <select id="tags_recipes" name="tag_id">
     <% @tags.each do |tag| %>
