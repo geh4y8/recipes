@@ -1,14 +1,16 @@
 class RecipesController < ApplicationController
 
   def index
+    @tags = Tag.all
     @recipe = Recipe.new
     @recipes = Recipe.all
     render('recipes/index.html.erb')
   end
 
   def create
-    @recipe = Recipe.new(params[:recipes])
-    if @recipe.save
+    tag = Tag.find(params[:tag_id])
+    @recipe = tag.recipes.create(params[:recipes])
+    if @recipe.valid?
       redirect_to("/recipes")
     else
       render('recipes/index.html.erb')

@@ -2,9 +2,17 @@
 
 <p><%= @recipe.recipe_description %></p>
 
+<h3> Tags </h3>
+<ul>
+  <% @recipe.tags.each do |tag| %>
+    <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a></li>
+  <% end %>
+</ul>
+
 <p><a href="/recipes/<%= @recipe.id %>/edit">Edit</a></p>
 <p><a href="/recipes/<%= @recipe.id %>"
       data-confirm="You sure?"
       data-method="delete"
       rel="nofollow">Delete</a></p>
+
 <p><a href="/recipes">Return to recipe</a></p>

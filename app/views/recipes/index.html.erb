@@ -21,5 +21,11 @@
   <input id="recipe_title" name="recipes[title]" type="text">
   <label for="recipe_recipe_description">Recipe Details</label>
   <input id="recipe_recipe_description" name="recipes[recipe_description]" type="text">
+  <label for="tags_recipes">Choose a tag</label>
+  <select id="tags_recipes" name="tag_id">
+    <% @tags.each do |tag| %>
+      <option value="<%= tag.id %>"><%= tag.name %></option>
+    <% end %>
+  </select>
   <button>Create Recipe</button>
 </form>

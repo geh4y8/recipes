@@ -1,0 +1,24 @@
+<h1> Tags </h1>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>
+
+
+<% if @tag.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @tag.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<form action="/tags" method="post">
+  <label for="name">Tag Name</label>
+  <input id="name" name="tags[name]" type="text">
+  <button>Create Tag</button>
+</form>
