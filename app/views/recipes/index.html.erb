@@ -8,34 +8,9 @@
   <% end %>
 </ul>
 
-<% if @recipe.errors.any? %>
-  <h3>Please fix these errors:</h3>
-  <ul>
-    <% @recipe.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
+<%= render('layouts/errors', object: @recipe) %>
 
 <form action="/recipes" method="post">
-  <label for="recipe_title">Recipe Title</label>
-  <input id="recipe_title" name="recipes[title]" type="text">
-  <label for="recipe_recipe_description">Recipe Details</label>
-  <input id="recipe_recipe_description" name="recipes[recipe_description]" type="text">
-  <label for="recipe_stars">Add a star rating</label>
-  <select id="recipe_stars" name="recipes[stars]">
-    <option value ="1">1</option>
-    <option value ="2">2</option>
-    <option value ="3">3</option>
-    <option value ="4">4</option>
-    <option value ="5">5</option>
-  </select>
-  <label for="tags_recipes">Choose a tag</label>
-  <select id="tags_recipes" name="tag_id">
-    <% @tags.each do |tag| %>
-      <option value="<%= tag.id %>"><%= tag.name %></option>
-    <% end %>
-  </select>
+  <%= render('form') %>
   <button>Create Recipe</button>
 </form>

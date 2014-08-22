@@ -7,8 +7,10 @@ class TagsController < ApplicationController
   end
 
   def create
+    @tags = Tag.all
     @tag = Tag.new(params[:tags])
     if @tag.save
+      flash[:notice] = "Tag added!"
       redirect_to("/tags/")
     else
       render('tags/index.html.erb')
