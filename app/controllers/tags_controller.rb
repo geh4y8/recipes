@@ -19,4 +19,21 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     render('tags/show.html.erb')
   end
+
+  def edit
+    @tag = Tag.find(params[:id])
+    render('tags/edit.html.erb')
+  end
+
+  def update
+    @tag = Tag.find(params[:id])
+    @tag.update(params[:tags])
+    redirect_to("/tags/")
+  end
+
+  def destroy
+    @tag = Tag.find(params[:id])
+    @tag.delete
+    redirect_to("/tags/")
+  end
 end
