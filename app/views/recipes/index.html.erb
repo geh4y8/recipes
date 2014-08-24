@@ -1,10 +1,11 @@
 <% content_for(:title, "Recipes") %>
 
+
 <h1> Recipes </h1>
 
 <ul>
   <% @recipes.each do |recipe| %>
-    <li>Title: <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>, Rating: <%= recipe.stars %></li>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>, Rating: <%= recipe.stars %></li>
   <% end %>
 </ul>
 
