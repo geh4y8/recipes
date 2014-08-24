@@ -1,7 +1,7 @@
   <label for="recipe_title">Recipe Title</label>
-  <input id="recipe_title" name="recipes[title]" type="text">
+  <input id="recipe_title" name="recipes[title]" type="text"><br />
   <label for="recipe_recipe_description">Recipe Details</label>
-  <input id="recipe_recipe_description" name="recipes[recipe_description]" type="text">
+  <input id="recipe_recipe_description" name="recipes[recipe_description]" type="text"><br />
   <label for="recipe_stars">Add a star rating</label>
   <select id="recipe_stars" name="recipes[stars]">
     <option value ="1">1</option>
@@ -9,10 +9,10 @@
     <option value ="3">3</option>
     <option value ="4">4</option>
     <option value ="5">5</option>
-  </select>
+  </select><br />
   <label for="tags_recipes">Choose a tag</label>
   <select id="tags_recipes" name="tag_id">
     <% @tags.each do |tag| %>
       <option value="<%= tag.id %>"><%= tag.name %></option>
     <% end %>
-  </select>
+  </select><br />

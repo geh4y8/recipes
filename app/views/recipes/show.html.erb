@@ -4,7 +4,6 @@
 
 <h3>Recipe Details</h3>
 <p><%= @recipe.recipe_description %></p>
-<br />
 <h3> Rating </h3>
 <p><%= @recipe.stars %></p>
 
@@ -16,10 +15,10 @@
   <% end %>
 </ul>
 
-<p><a href="/recipes/<%= @recipe.id %>/edit">Edit</a></p>
+<p><a href="/recipes/<%= @recipe.id %>/edit"><button>Edit</button></a></p>
 <p><a href="/recipes/<%= @recipe.id %>"
       data-confirm="You sure?"
       data-method="delete"
-      rel="nofollow">Delete</a></p>
+      rel="nofollow"><button>Delete</button></a></p>
 
 <p><a href="/recipes">Return to recipe</a></p>
