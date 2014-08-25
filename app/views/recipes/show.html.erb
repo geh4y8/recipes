@@ -15,10 +15,10 @@
   <% end %>
 </ul>
 
-<p><a href="/recipes/<%= @recipe.id %>/edit"><button>Edit</button></a></p>
-<p><a href="/recipes/<%= @recipe.id %>"
-      data-confirm="You sure?"
-      data-method="delete"
-      rel="nofollow"><button>Delete</button></a></p>
+<p><%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-warning" %></p>
+<p><%= link_to "Delete", recipe_path(@recipe),
+      data: {confirm: "You sure?",
+             method: "delete"},
+      class: "btn btn-danger" %></p>
 
-<p><a href="/recipes">Return to recipe</a></p>
+<p><%= link_to "Back to Recipes", recipes_path, class: "btn btn-info" %></p>
