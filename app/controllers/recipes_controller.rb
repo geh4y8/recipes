@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
     @tags = Tag.all
     @recipe = Recipe.new
     @recipes = Recipe.order(stars: :desc)
-    render('recipes/index.html.erb')
   end
 
   def create
@@ -14,34 +13,32 @@ class RecipesController < ApplicationController
     @recipe = tag.recipes.create(params[:recipes])
     if @recipe.valid?
       flash[:notice] = "Your recipe was added to the database!"
-      redirect_to("/recipes")
+      redirect_to recipes_path
     else
-      render('recipes/index.html.erb')
+      render 'index'
     end
   end
 
   def show
     @recipe = Recipe.find(params[:id])
-    render('recipes/show.html.erb')
   end
 
   def edit
     @tags = Tag.all
     @recipe = Recipe.find(params[:id])
-    render('recipes/edit.html.erb')
   end
 
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(params[:recipes])
     flash[:notice] = "#{@recipe.title} updated"
-    redirect_to("/recipes/#{@recipe.id}")
+    redirect_to recipe_path(@recipe)
   end
 
   def destroy
     @recipe = Recipe.find(params[:id])
     flash[:notice] = "#{@recipe.title} deleted."
     @recipe.delete
-    redirect_to("/recipes/")
+    redirect_to recipes_path
   end
 end
